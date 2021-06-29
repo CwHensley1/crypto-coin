@@ -1,1 +1,1 @@
-# Flex-coin
+# Muscle-coin
