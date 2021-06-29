@@ -1,1 +1,1 @@
-# crypto-coin
+# Skull-coin
