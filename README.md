@@ -1,1 +1,1 @@
-# Skull-coin
+# Flex-coin
