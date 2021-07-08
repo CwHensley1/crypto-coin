@@ -32,8 +32,8 @@ contract SafeMath {
 }
 
 contract Coin is ERC20Interface, SafeMath {
-    string public name = "MyAwesomeCoin";
-    string public symbol = "MAC";
+    string public name = "MuscleCoin";
+    string public symbol = "MuC";
     uint8 public decimals = 18;
     uint256 public _totalSupply = 21000000000000000000000000; // 21 million coins
 
