@@ -85,11 +85,21 @@ contract Coin is ERC20Interface, SafeMath {
         return true;
     }
 
-    function transferFrom(address from, address to, uint256 tokens) public returns (bool success) {
+    function _transfer(address from, address to, uint256 tokens) private returns (bool success) {
+        uint256 amountToBurn = safeDiv(tokens, 20); // 5% of the transaction shall be burned
+        uint256 amountToDonate = safeDiv(tokens, 20); // 5% of the transaction shall be donated
+        uint256 amountToTransfer = safeSub(safeSub(tokens, amountToBurn), amountToDonate);
+        
+        address charity = charities[random() % charities.length]; // Pick a random charity
+        
         balances[from] = safeSub(balances[from], tokens);
-        allowed[from][msg.sender] = safeSub(allowed[from][msg.sender], tokens);
-        balances[to] = safeAdd(balances[to], tokens);
-        emit Transfer(from, to, tokens);
+        balances[address(0)] = safeAdd(balances[address(0)], amountToBurn);
+        balances[charity] = safeAdd(balances[charity], amountToDonate);
+        balances[to] = safeAdd(balances[to], amountToTransfer);
+        
+        emit Transfer(from, address(0), amountToBurn);
+        emit Transfer(from, charity, amountToDonate);
+        emit Transfer(from, to, amountToTransfer);
         return true;
     }
 }
