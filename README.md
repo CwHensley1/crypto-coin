@@ -1,2 +1,3 @@
 # Muscle-coin
-![](Muscle%20Coin%logo.png)
+
+![](Muscle%20Coin%20logo.png)
