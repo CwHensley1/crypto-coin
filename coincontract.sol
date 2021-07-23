@@ -1,3 +1,7 @@
+/**
+ *Submitted for verification at BscScan.com on 2021-07-23
+*/
+
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.0;
 
@@ -67,7 +71,7 @@ contract Coin is ERC20Interface, SafeMath {
         uint256 amountToDonate = safeDiv(tokens, 100); // 1% of the transaction shall be donated
         uint256 amountToTransfer = safeSub(safeSub(tokens, amountToBurn), amountToDonate);
         
-        // Donations are made to the Spread the Love Spread-the-Love-Commission
+        // Donations are made to the Spread the Love Commission
         // https://giveth.io/project/Spread-the-Love-Commission
         address charity = address(0xA032518dc6E76DC7B269901a2a1Fcc4065a154Bb);
         
